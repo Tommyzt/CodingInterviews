@@ -20,23 +20,18 @@ public://注意：length是整个字符串的总容量 包括未占用的空间
 		int newLen = originLen + numOfblank * 2; 
 		if (newLen > length)
 			return;
-		int k = originLen;
-		int j = newLen;
 		
-		while (k >= 0 && j > k)
+		while (originLen >= 0 && newLen > originLen)
 		{
-			if (str[k] == ' ')
+			if (str[originLen] == ' ')
 			{
-				str[j--] = '0';
-				str[j--] = '2';
-				str[j--] = '%';
+				str[newLen--] = '0';
+				str[newLen--] = '2';
+				str[newLen--] = '%';
 			}
 			else
-				str[j--] = str[k];
-			k--;
+				str[newLen--] = str[originLen];
+			originLen--;
 		}
-
-
-		puts(str);
 	}
 };
